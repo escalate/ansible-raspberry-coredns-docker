@@ -23,7 +23,7 @@ def test_coredns_config(host):
         "    health :5380\n"
         "    errors\n"
         "    log\n"
-        "}\n"
+        "}"
     )
     assert config in f.content_string
 
