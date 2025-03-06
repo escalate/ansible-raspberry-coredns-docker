@@ -18,12 +18,7 @@ def test_coredns_config(host):
     assert f.group == "root"
 
     config = (
-        ".:1053 {\n"
-        "    whoami\n"
-        "    health :5380\n"
-        "    errors\n"
-        "    log\n"
-        "}"
+        ".:1053 {\n" "    whoami\n" "    health :5380\n" "    errors\n" "    log\n" "}"
     )
     assert config in f.content_string
 
@@ -43,8 +38,7 @@ def test_coredns_docker_container(host):
     assert d["Config"]["Labels"]["maintainer"] == "me@example.com"
     assert "APP_TEST_ENV=true" in d["Config"]["Env"]
     assert "internal" in d["NetworkSettings"]["Networks"]
-    assert \
-        "coredns" in d["NetworkSettings"]["Networks"]["internal"]["Aliases"]
+    assert "coredns" in d["NetworkSettings"]["Networks"]["internal"]["Aliases"]
 
 
 def test_coredns_whoami(host):

@@ -12,7 +12,7 @@
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: "0755"
 
 - name: Create service configuration
   ansible.builtin.template:
@@ -20,7 +20,7 @@
     dest: "{{ coredns_etc_path }}/Corefile"
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   no_log: true
   notify: Restart coredns service
 
@@ -30,7 +30,7 @@
     dest: /etc/coredns.env
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   notify: Restart coredns service
 
 - name: Define Docker container labels
@@ -39,7 +39,7 @@
     dest: /etc/coredns.label
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   notify: Restart coredns service
 
 - name: Pull Docker image
@@ -53,7 +53,7 @@
     dest: /etc/systemd/system/coredns.service
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   notify: Restart coredns service
 
 - name: Start service
